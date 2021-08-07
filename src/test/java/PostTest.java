@@ -9,7 +9,7 @@ public class PostTest extends UtilClass {
 
     @Test
     public void testCreateIssue() throws JSONException {
-        given().auth().oauth2("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 ")
+        given().auth().oauth2(authToken)
                 .body(getTitleBody("HELLO WORLD!"))
                 .when().post(baseUrl + "repos/fredyolha/ohpenInterview/issues")
                 .then().assertThat().statusCode(HttpStatus.SC_CREATED);

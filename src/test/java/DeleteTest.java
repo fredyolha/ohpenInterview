@@ -13,7 +13,7 @@ public class DeleteTest extends UtilClass{
     @BeforeAll
     public static void createSomeIssue() throws JSONException {
 
-        Response response = given().auth().oauth2("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 ")
+        Response response = given().auth().oauth2(authToken)
                 .body(getTitleBody("RandomName"))
                 .when().post(baseUrl + "repos/fredyolha/ohpenInterview/issues");
         issueId = response.path("id");
@@ -30,7 +30,7 @@ public class DeleteTest extends UtilClass{
      */
     @Test
     public void testDeleteTheIssue(){
-       given().auth().oauth2("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")
+       given().auth().oauth2(authToken)
                 .when().delete("https://api.github.com/projects/<id>/<iid>");
     }
 }
